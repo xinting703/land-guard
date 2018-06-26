@@ -1,0 +1,28 @@
+<!--pages/scene/scene.wxml-->
+<view wx:if="{{show_notice}}" class="notice">
+  <view class="icon-wrap">
+    <image class="icon-warn" src="/images/common/inform_icon_warning.png"></image>
+  </view>设备信息提醒，<text bindtap="checkNotice" class="btn-check">点此查看</text>
+</view>
+<view class="wrapper-list-scene text-gray" style="{{show_notice ? 'padding-top: 110rpx;' : ''}}">
+  <view bindtap="addScene" class="content-add bg-white text-gray2">
+      添加地块
+      <view class="icon-wrap" style="float: right;">
+          <image class="icon-add" src="/images/common/icon_add@2x.png"></image>
+      </view>
+  </view>
+   <view bindtap="checkScene" wx:for="{{list}}" wx:for-item="item" wx:key="{{index}}" class="list-item bg-white text-blackgray" id="{{item.idx}}" data-index="{{index}}">
+        <view class="border-left {{item.device_num ? 'bg-green-gdt' : 'bg-yellow-gdt'}}"></view>
+        <view class="name">{{item.name}}</view>
+        <view class="member text-white text-center {{item.device_num ? 'bg-green-gdt' : 'bg-yellow-gdt'}}">
+            <view>
+                <text class="num">{{item.device_num}}</text>台
+            </view>
+            <view class="desc">已安装设备</view>
+        </view>
+   </view>
+</view>
+<view wx:if="{{empty_show}}" class="empty-list text-blackgray">
+  <image src="/images/default/equipment_img_nulldata@2x.png" mode="widthFix"></image>
+  <view class="text-center">还没有地块，快去添加新地块吧</view>
+</view>

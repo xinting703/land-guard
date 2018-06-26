@@ -1,0 +1,11 @@
+<!--pages/adddevice/adddevice.wxml-->
+<view class="container">
+    <view class="wrapper-input-edit">
+      <image class="icon-edit" src="/images/common/addblock_icon@2x.png"></image>
+      <input bindinput="getInput" bindfocus="inputFocus" bindblur="inputBlur" placeholder="设备编号" placeholder-class="text-plh" focus="true" value="{{device_id}}"/>
+      <image wx:if="{{device_id}}" bindtap="clearInput" hidden="{{hideClear}}" class="btn-clear" src="/images/common/addblock_icon_error@2x.png"></image>
+    </view>
+    <button type="success" bindtap="confirmAddDevice" class="btn-success" disabled="{{!device_id.length}}">确定</button>
+</view>
+
+  

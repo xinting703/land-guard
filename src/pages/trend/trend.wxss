@@ -1,0 +1,195 @@
+/* pages/trend/trend.wxss */
+.container {
+    padding-top: 20rpx;
+}
+.wrapper-scroll {
+  border-bottom: 1px solid #eee;
+}
+.scroll-view {
+  height: 110rpx;
+  white-space: nowrap;
+  background-color: #fff;
+}
+.scroll-item {
+  position: relative;
+  width: 20%;
+  height: 110rpx;
+  display: inline-block;
+  line-height: 110rpx;
+  font-size: 26rpx;
+}
+.scroll-item
+.line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 40rpx;
+  margin-left: -20rpx;
+}
+.scroll-item.active
+.line {
+  border-bottom: 2px solid #75ca85;
+}
+.months{
+    width: 100%;
+}
+.months
+.m-item {
+    float: left;
+    width: 25%;
+    height: 30px;
+    line-height: 30px;
+}
+
+.top-picker {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #999;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.select-info {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+}
+.section-title {
+    float: left;
+}
+
+.wrapper-picker {
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.wrapper-picker
+.picker {
+    display: inline-block;
+}
+.select-info
+.arrow-down {
+    height: 8px;
+    width: 14px;
+    margin-left: 5px;
+}
+
+/*图表区域*/
+.wrapper-photo-list, .wrapper-chart-list {
+    position: relative;
+    z-index: 3;
+    padding-bottom: 20rpx;
+}
+.wrapper-type:not(:last-child) {
+  margin-bottom: 20rpx;
+}
+.canvas-wrap {
+    position: relative;
+    background-color: #fff;
+    padding-left: 10px;
+    padding-bottom: 20rpx;
+}
+.container .canvas-wrap:not(:last-child) {
+    margin-bottom: 20rpx;
+}
+.text-wrap {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 30rpx;
+    padding-right: 20rpx;
+}
+.btn-option {
+  position: absolute;
+  right: 30rpx;
+  top: 0;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 26rpx;
+}
+canvas {
+    display: block !important;
+}
+.data-show {
+  height: 90rpx;
+}
+.data-show
+.time {
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 24rpx;
+}
+.data-show
+.chart-data {
+  height: 60rpx;
+}
+.data-show
+.chart-data
+.val {
+  line-height: 60rpx;
+  font-size: 60rpx;
+  margin-right: 20rpx;
+}
+.desc {
+  position: absolute;
+  top: 30px;
+  min-width: 100px;
+  height: 46px;
+  text-align: left;
+  line-height: 18px;
+  color: #fff;
+  padding: 5px 10px;
+  background-color: #000;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: .4;
+}
+.desc .tria {
+  border-width: 6px;
+  border-style: solid;
+  border-color: #0e4059 transparent transparent transparent;
+  position: absolute;
+  bottom: -12px;
+}
+.h-line {
+  width: 1px;
+  height: 130px;
+  background-color: #eee;
+  position: absolute;
+  bottom: 31px;
+}
+
+/*空显示*/
+.empty-show {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin-top: -30px;
+}
+.empty-show .doll{
+  width: 600rpx;
+  height: 430rpx;
+}
+.empty-show .empty-tip {
+  line-height: 30px;
+  font-size: 30rpx;
+}
+.no-more-info {
+    line-height: 30px;
+    padding: 5px 20rpx;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    transition: all 1s;
+}

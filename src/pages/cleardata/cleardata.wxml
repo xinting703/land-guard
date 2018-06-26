@@ -1,0 +1,13 @@
+<!--pages/cleardata/cleardata.wxml-->
+<view class='container'>
+  <view class='tip-container'>
+    <view class='tip-title'>警告</view>
+    <text class='tip-detail'>确认后将删除该设备所有数据，数据删除后不可恢复</text>
+  </view>
+  <view class='confirm-wrapper'>
+    <label bindtap='checkboxChange' class='checkbox'>
+      <checkbox class='check-box' value='已查看并同意警告内容' checked='{{viewed}}' color='#F7D032'/>已查看并同意警告内容
+    </label>
+    <button bindtap='confirmClear' class='btn-clear' disabled='{{!viewed}}'>确认清空</button>
+  </view>
+</view>

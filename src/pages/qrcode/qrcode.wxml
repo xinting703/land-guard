@@ -1,0 +1,7 @@
+<!--pages/qrcode/qrcode.wxml-->
+<view class="container">
+    <view class="img-box">
+      <canvas canvas-id="mycanvas"/>
+    </view>
+    <view class="dev-id text-center text-blackgray">{{deviceId}}</view>
+</view>

@@ -1,0 +1,11 @@
+<!--pages/notice/notice.wxml-->
+<view class="notice-list">
+  <view class="list-item" wx:for="{{items}}" wx:key="device_id" wx:for-item="item">
+    <view class="content">
+      <image class="icon-notice" src="/images/common/inform_icon_electricity.png"></image>
+      <view class="text">
+        {{item.name || '未命名'}}({{item.device_id}})设备电量低，剩余{{item.battery_level}}
+      </view>
+    </view>
+  </view>
+</view>

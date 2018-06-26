@@ -1,0 +1,126 @@
+<!--scenedata.wxml-->
+<view class="container">
+    <view class="main-container">
+        <view bindtap="checkScene" id="{{panel_fm1.id}}" class="wrapper-top bg-gray text-white">
+          <view wx:if="{{has_fm1 && has_fm2}}" class="indicator-dots">
+            <view class="dot-item {{current_type === 0 ? 'active' : ''}}"></view>
+            <view class="dot-item {{current_type === 1 ? 'active' : ''}}"></view>
+          </view>
+          <image class="bg-scene" src="/images/scenedata/block_img_bg.png" style="position: absolute;"></image>
+          <swiper bindchange="changeType" current="{{current_type}}">
+            <swiper-item wx:if="{{has_fm1 || (!has_fm1 && !has_fm2)}}">
+              <view class="scene-content">
+                  <view class="center-wrap text-center">
+                      <view class="txt-btm scene-name">
+                        <text style="display: inline-block;">{{scene_name}}</text>
+                      </view>
+                      <view class="divide bg-white"></view>
+                  </view>
+                  <view class="tem">
+                    <text>{{panel_fm1.tem.value}}{{panel_fm1.tem.decimal}}</text>
+                    <text wx:if="{{panel_fm1.tem.value !== '--'}}" class="unit">{{panel_fm1.tem.unit}}</text>
+                    <text class="tem-label text-center" style="background-color: {{panel_fm1.tem.labelColor}};">{{panel_fm1.tem.label}}</text>
+                  </view>
+                  
+                  <!--fm1数据部分-->
+                  <view class="data-list data-fm1 text-center">
+                      <view class="line-group"></view>
+                      <view class="classname">
+                          <view class="item" wx:for="{{panel_fm1.dataList}}" wx:for-item="l_item" wx:key="name">
+                              <view class="item-value">
+                                  {{l_item.value}}{{l_item.decimal}}<text class="unit" wx:if="{{l_item.value !== '--'}}">{{l_item.unit}}</text>
+                              </view>
+                              <view class="item-desc">
+                                  {{l_item.name}}<text class="desc" wx:if="{{l_item.desc}}">：{{l_item.desc}}</text>
+                              </view>
+                          </view>
+                      </view>
+                  </view>
+              </view>
+            </swiper-item>
+            <swiper-item wx:if="{{has_fm2}}">
+              <!--fm2数据-->
+              <view class="scene-content">
+                  <view class="center-wrap text-center">
+                      <view class="txt-btm scene-name">
+                        <text style="display: inline-block;">{{scene_name}}</text>
+                      </view>
+                      <view class="divide bg-white"></view>
+                  </view>
+                  <view class="tem" style="margin-top: 25rpx;">
+                    <view style="display: flex;height: 60rpx;align-items: flex-end;justify-content: center;">
+                      <view style="height: 60rpx;">{{panel_fm2.dataList[0].value}}{{panel_fm2.dataList[0].decimal}}</view>
+                      <view class="h-rain" wx:if="{{panel_fm2.dataList[0].value !== '--'}}">
+                        <text style="margin-right: 10rpx;">{{panel_fm2.dataList[0].unit}}</text>
+                        <text style="border-left: 1px solid #81DC92;padding-left: 10rpx;">{{panel_fm2.dataList[0].desc}}</text>
+                      </view>
+                    </view>
+                    <view wx:if="{{panel_fm2.dayRainfall.value !== '--'}}" class="day-rainfall">
+                      <text>当天降雨量</text>
+                      <text style="font-size: 24rpx;margin-left: 6rpx;">{{panel_fm2.dayRainfall.value}}{{panel_fm2.dayRainfall.decimal}}mm</text>
+                    </view>
+                    <view wx:else style="font-size: 26rpx;">降雨量</view>
+                  </view>
+                  
+                  <view class="data-list data-fm1 text-center">
+                      <view class="line-group"></view>
+                      <view class="classname">
+                          <view class="item" wx:if="{{index !== 0}}" wx:for="{{panel_fm2.dataList}}" wx:for-index="index" wx:for-item="l_item" wx:key="name">
+                              <view class="item-value">
+                                  {{l_item.value}}{{l_item.decimal}}<text class="unit" wx:if="{{l_item.value !== '--'}}">{{l_item.unit}}</text>
+                              </view>
+                              <view class="item-desc">
+                                  {{l_item.name}}<text class="desc" wx:if="{{l_item.desc}}">：{{l_item.desc}}</text>
+                              </view>
+                          </view>
+                      </view>
+                  </view>
+              </view>
+            </swiper-item>
+          </swiper>
+        </view>
+        <view class="options bg-white text-blackgray">
+            <view bindtap="checkHistory" class="opt-item text-center icon-wrap">
+                <view class="btn-opt" style="border-right: 1px solid #e9e9e9;">
+                    <image class="icon-history" src="/images/scenedata/block_icon_history@2x.png" mode="widthFix"></image>
+                    <text>历史数据</text>
+                </view>
+            </view>
+            <view bindtap="checkTrend" class="opt-item trend text-center icon-wrap">
+                <view class="btn-opt">
+                    <image class="icon-trend" src="/images/scenedata/block_icon_count@2x.png" mode="widthFix"></image>
+                    <text>统计分析</text>
+                </view>
+            </view>
+        </view>
+        <view style="width: 100%;padding: 20rpx;">
+            <view bindtap="showAddMethod" class="content-add bg-white text-gray2">
+                添加设备
+                <view class="icon-wrap" style="float: right;">
+                    <image class="icon-add" src="/images/common/icon_add@2x.png"></image>
+                </view>
+            </view>
+        </view>
+        <!--图像部分-->
+        <view wx:if="{{panel_fm1.photos.length}}" class="wrapper-list-imgs">
+            <view class="img-content bg-gray">
+                <view class="img-wrap" wx:for="{{panel_fm1.photos}}" wx:key="deviceId" wx:for-item="pic">
+                    <view class="direction" data-deviceid="{{pic.deviceId}}" data-devicename="{{pic.name}}" data-date="{{pic.date}}">
+                    <view class="block-line"></view>
+                    <view class="pic-name text-blackgray">{{pic.name ? pic.name : pic.deviceId}}</view>
+                    <view class="pic-time">
+                        <view class="icon-wrap">
+                            <image class="icon-time" src="/images/common/block_icon_time@2x.png" mode="widthFix"></image>
+                        </view>
+                        {{pic.interval}}
+                    </view>
+                    </view>
+                    <image bindtap="preview" data-index="{{pic.idx}}" class="monitor-pic bg-gray" src="{{pic.src}}" mode="widthFix"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="wrapper-tip" hidden="{{!show_tip}}">
+      <view class="tip">未添加过设备</view>
+    </view>
+</view>

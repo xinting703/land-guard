@@ -1,0 +1,12 @@
+<!--pages/video/video.wxml-->
+<view class="wrapper-video" style="height: {{video_height + 50}}px;">
+  <video bindfullscreenchange="fullscreenchange" style="height: {{video_height}}px;" src="{{video_src}}" poster="{{img_src}}" controls hidden="{{!display}}" objectFit="{{fit}}"></video>
+  <view class="btn-video-group">
+    <button bindtap="shareFile" open-type="share" class="btn btn-item btn-share">
+      <view class="icon-wrap"><image src="/images/video/icon_share_nor.png"></image></view>转发
+    </button>
+    <button bindtap="saveFile" class="btn btn-item btn-save" loading="{{downloading}}">
+      <view wx:if="{{!downloading}}" class="icon-wrap"><image src="/images/video/icon_save_nor.png"></image></view>保存
+    </button>
+  </view>
+</view>

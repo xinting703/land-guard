@@ -1,0 +1,36 @@
+<!--pages/fee/fee.wxml-->
+<view class="container">
+    <view class="text-center">技术服务费</view>
+    <view class="money text-center">¥250.00</view>
+    <view class="list-wrap">
+        <view class="list-item">            
+            设备名
+            <text class="text-no-arrow text-gray">{{device.name}}</text>
+        </view>
+        <view class="list-item">            
+            编号
+            <text class="text-no-arrow text-gray">{{device.device_id}}</text>
+        </view>
+        <view class="list-item">            
+            序列号
+            <text class="text-no-arrow text-gray">{{device.sn}}</text>
+        </view>
+    </view>
+    <view class="list-wrap">
+        <view class="list-item" wx:if="{{device.start_time}}">            
+            开始时间
+            <text class="text-no-arrow text-gray">{{device.start_time}}</text>
+        </view>
+        <view class="list-item">            
+            到期时间
+            <text class="text-no-arrow text-gray">{{device.end_time}}</text>
+        </view>
+    </view>
+    <view class="list-wrap">
+        <view class="list-item">            
+            收款方
+            <text class="text-no-arrow text-gray">广州极飞科技有限公司</text>
+        </view>
+    </view>
+    <button bindtap="pay" class="btn-default btn-success">确认支付</button>
+</view>

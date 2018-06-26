@@ -1,0 +1,107 @@
+<!--pages/deviceinfo/deviceinfo.wxml-->
+<view class="container">
+    <view class="list-wrap">
+      <view bindtap="{{device.is_own || (method_of_add === 'scancode' && device.owner === 'empty') ? 'setName' : ''}}" class="list-item">
+        <view class="icon-wrap">
+            <image src="/images/deviceinfo/Equipmentinfo_icon1@2x.png"></image>
+        </view>
+        名称
+        <text class="{{device.is_own || (method_of_add === 'scancode' && device.owner === 'empty') ? 'text-has-arrow' : 'text-no-arrow'}} text-gray">{{name || '未命名'}}</text>
+        <image wx:if="{{device.is_own || (method_of_add === 'scancode' && device.owner === 'empty')}}" class="icon-arrow" src="/images/common/arrow_gray_right@2x.png"></image>
+      </view>
+      <view class="list-item">
+        <view class="icon-wrap">
+            <image src="/images/deviceinfo/Equipmentinfo_icon5@2x.png"></image>
+        </view>                
+        编号
+        <text class="text-no-arrow text-gray">{{device.device_id}}</text>
+      </view>
+      <block wx:if="{{show_all}}">
+        <view wx:if="{{device.sn}}" class="list-item">
+          <view class="icon-wrap">
+              <image src="/images/deviceinfo/Equipmentinfo_icon6@2x.png"></image>
+          </view>             
+          序列号
+          <text class="text-no-arrow text-gray">{{device.sn}}</text>
+        </view>
+        <view bindtap="checkQrcode" class="list-item">
+          <view class="icon-wrap">
+              <image src="/images/deviceinfo/Equipmentinfo_icon7@2x.png"></image>
+          </view>                
+          二维码
+          <image class="icon-arrow" src="/images/common/arrow_gray_right@2x.png"></image>
+        </view>
+      </block>
+    </view>
+
+    <view wx:if="{{show_all}}" class="list-wrap">
+      <view class="list-item">
+        <view class="icon-wrap">
+            <image src="/images/deviceinfo/Equipmentinfo_icon4@2x.png"></image>
+        </view>        
+        型号
+        <text class="text-no-arrow text-gray">{{device.modelName}}</text>
+      </view>
+      <view class="list-item">
+        <view class="icon-wrap">
+            <image src="/images/deviceinfo/Equipmentinfo_icon8@2x.png"></image>
+        </view>        
+        软件版本
+        <text class="text-no-arrow text-gray">{{device.version ? device.version : '从未上线'}}</text>
+      </view>
+    </view>
+    
+    <view wx:if="{{show_all}}" class="list-wrap">
+      <view bindtap="checkLocation" class="list-item">
+        <view class="icon-wrap">
+            <image src="/images/deviceinfo/Equipmentinfo_icon3@2x.png"></image>
+        </view>
+        设备位置
+        <image class="icon-arrow" src="/images/common/arrow_gray_right@2x.png"></image>
+      </view>
+    </view>
+
+    <view wx:if="{{method_of_add !== 'scancode' && device.is_own}}" class="list-wrap">
+      <view wx:if="{{xa_card && device.end_time}}" class="list-item"> <!--bindtap="showPayInfo" -->
+        <view class="icon-wrap">
+            <image src="/images/deviceinfo/Equipmentinfo_icon9@2x.png"></image>
+        </view>
+        服务到期时间
+        <text class="text-no-arrow text-gray">{{device.end_time}}</text>
+        <!--<image class="icon-arrow" src="/images/common/arrow_gray_right@2x.png"></image>-->
+      </view>
+      <view class="list-item">
+        <view class="icon-wrap">
+            <image src="/images/deviceinfo/Equipmentinfo_icon10@2x.png"></image>
+        </view>        
+        数据共享
+        <switch class="switch" bindchange="switchChange" checked="{{device.public}}" color="#75ca85"/>
+      </view>
+      <view wx:if="{{device.modelName === 'FM1'}}" bindtap="setArgument" class="list-item">
+        <view class="icon-wrap">
+            <image src="/images/deviceinfo/Equipmentinfo_icon11@2x.png"></image>
+        </view>
+        参数设置
+        <image class="icon-arrow" src="/images/common/arrow_gray_right@2x.png"></image>
+      </view>
+      <view bindtap="cleardata" class="list-item">
+        <view class="icon-wrap">
+            <image src="/images/deviceinfo/Equipmentinfo_icon12@2x.png"></image>
+        </view>
+        清空设备数据
+        <image class="icon-arrow" src="/images/common/arrow_gray_right@2x.png"></image>
+      </view>
+    </view>
+    
+    <view wx:if="{{method_of_add === 'scancode'}}" class="wrapper-btn-block">
+      <button type="success" bindtap="addDevice" class="btn-block btn-success">添加</button>
+      <button bindtap="goBack" class="btn-block btn-default">取消</button>
+    </view>
+    <view wx:if="{{show_all && (!device.is_own || (device.is_own && get_tel) )}}" class="wrapper-btn-block">
+      <button bindtap="showConfirmModal" class="btn-block btn-error">删除</button>
+    </view>
+
+    <view wx:if="{{show_tip}}" class="wrapper-tip">
+      <view class="tip">请先修改设备名</view>
+    </view>
+</view>

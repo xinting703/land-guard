@@ -1,0 +1,48 @@
+/* pages/deviceinfo/deviceinfo.wxss */
+.container {
+    height: auto;
+    padding: 20rpx 0;
+}
+
+.slide-item .inner.txt:active {
+    background-color: #fff;
+}
+.dev-info {
+    height: 90px;
+}
+.tags {
+    top: 0;
+    height: 40px;
+    margin-left: 60px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+/*列表项*/
+.list-wrap {
+    margin-bottom: 20rpx;
+}
+.list-item {
+    height: 100rpx;
+    line-height: 100rpx;
+    display: block;
+}
+.text-has-arrow {
+    position: absolute;
+    right: 30px;
+}
+.text-no-arrow {
+    position: absolute;
+    right: 10rpx;
+}
+.icon-arrow {
+    top: 14px;
+}
+.switch {
+    position: absolute;
+    top: -1px;
+    right: 0;
+}
+.wrapper-btn-block {
+  margin-top: 100rpx;
+}

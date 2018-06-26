@@ -1,0 +1,26 @@
+/*device.wxss*/
+.container {
+    padding: 20rpx;
+    height: 100%;
+}
+
+/*列表项*/
+.list-item {
+    height: 40px;
+    line-height: 40px;
+}
+.list-item label {
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    font-size: 16px;
+    width: 40px;
+}
+.list-item input {
+    line-height: 40px;
+    padding-left: 15px;
+    height: 40px;
+}
+.icon-arrow {
+    top: 14px;
+}

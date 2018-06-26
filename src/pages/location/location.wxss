@@ -1,0 +1,84 @@
+/* pages/location/location.wxss */
+map {
+    width: 100%;
+}
+.list-wrap {
+    height: 100px;
+    border: none;
+    padding-left: 20rpx;
+}
+.list-item.h6 {
+  height: 60px;
+  line-height: 20px;
+}
+.list-item.h4 {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 60rpx;
+}
+.u-desc {
+    float: right;
+}
+.icon-type,
+.icon-loc {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.icon-type {
+  left: 4rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.icon-loc {
+  right: 20rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+.type-des {
+    padding: 10px 30px 10px 60rpx;
+    line-height: 20px;
+}
+.dev-name {
+    font-size: 30rpx;
+}
+.scene-name {
+    display: block;
+    width: 100%;
+    height: 20px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    /*display: flex;*/
+ }
+.addr-wrap {
+    position: relative;
+    padding-left: 20px;
+}
+.addr-wrap .icon-wrap {
+    position: absolute;
+    left: 0;
+}
+.list-wrap .list-item .icon-wrap
+image.icon-addr{
+    margin-bottom: 4px;
+    margin-left: 4rpx;
+}
+.address {
+    overflow-x: scroll;
+    width: 100%;
+    font-size: 30rpx;
+    white-space: nowrap;
+}
+
+.empty-tip {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-size: 30rpx;
+}
+.empty-tip image {
+    width: 600rpx;
+    height: 430rpx;
+}

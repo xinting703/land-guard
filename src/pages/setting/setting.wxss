@@ -1,0 +1,29 @@
+/* pages/setting/setting.wxss */
+.container {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.list-wrap .list-item {
+  height: 110rpx;
+  line-height: 110rpx;
+}
+.list-item
+.opt {
+  float: right;
+}
+.wrapper-slider {
+  width: 400rpx;
+  height: 100%;
+}
+slider {
+  margin: 0;
+}
+radio-group
+label:not(:last-child) {
+  margin-right: 20rpx;
+}
+label
+radio {
+  transform: scale(.6);
+  margin-right: -6rpx;
+}

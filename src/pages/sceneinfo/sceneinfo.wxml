@@ -1,0 +1,24 @@
+<!--pages/sceneinfo/sceneinfo.wxml-->
+<view class="container">
+    <view class="list-wrap system-info text-blackgray">
+        <view bindtap="setSceneName" class="list-item">
+            <view class="icon-wrap">
+                <image src="/images/sceneinfo/basicinfo_icon1_name@2x.png"></image>
+            </view>
+            名称
+            <text class="text-has-arrow text-gray">{{name}}</text>
+            <image class="icon-arrow" src="/images/common/arrow_gray_right@2x.png"></image>
+        </view>
+        <view bindtap="checkDevice" class="list-item">
+            <view class="icon-wrap">
+                <image src="/images/sceneinfo/basicinfo_icon2_installed@2x.png"></image>
+            </view>
+            已安装设备
+            <text class="text-has-arrow text-gray">{{device_length}}台</text>
+            <image class="icon-arrow" src="/images/common/arrow_gray_right@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="showConfirmModal" class="wrapper-btn-block">
+        <button class="btn-block btn-error">删除</button>
+    </view>
+</view>

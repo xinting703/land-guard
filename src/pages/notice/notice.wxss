@@ -1,0 +1,48 @@
+/* pages/notice/notice.wxss */
+.notice-list {
+  padding-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.notice-list
+.list-item {
+  position: relative;
+  width: 100%;
+  height: 150rpx;
+  color: #333;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  background-color: #fff;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.notice-list
+.list-item
+.content {
+  height: 100%;
+  padding: 35rpx 20rpx 35rpx 100rpx;
+}
+.notice-list
+.list-item
+.content
+.text {
+  height: 100%;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.notice-list
+.list-item:not(:last-child)
+.content {
+  border-bottom: 1px solid #eee;
+}
+.notice-list
+.icon-notice {
+  position: absolute;
+  left: 40rpx;
+  top: 45rpx;
+  width: 60rpx;
+  height: 60rpx;
+}

@@ -1,0 +1,29 @@
+/*scenedevice.wxss*/
+.wrapper-list-detail {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 20rpx;
+  overflow-y: auto;
+}
+.wrapper-edit {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 36rpx;
+  border-bottom: 1px solid #eee;
+  margin-top: 20rpx;
+}
+.btn-edit {
+  float: right;
+  height: 100%;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.icon-del {
+  position: absolute;
+  top: 60rpx;
+  right: 0;
+  height: 80rpx;
+  width: 80rpx;
+  padding: 10rpx;
+  transition: all .5s;
+}

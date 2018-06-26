@@ -1,0 +1,42 @@
+<!--pages/trend/trend.wxml-->
+<view class="container">
+    <view class="wrapper-scroll text-gray1">
+      <scroll-view class="scroll-view" scroll-x="true" scroll-into-view="{{right_m}}" scroll-left="1000">
+        <view bindtap="bindSelectMonth" class="scroll-item text-center {{month_idx === idx ? 'active' : ''}}" id="{{month.idx}}" wx:for="{{months}}" data-idx="{{idx}}" wx:for-index="idx" wx:for-item="month" wx:key="time">
+          <view class="classname">{{month.time}}</view>
+          <view class="line"></view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class="wrapper-chart-list" wx:for="{{month_charts}}" wx:for-index="idx" wx:for-item="month" wx:key="show_month" hidden="{{month_idx == idx ? false : true}}" style="min-height: {{fullHeight - 175}}px;" id="{{idx}}"> <!--日期-->
+        <view class="wrapper-type" wx:for="{{month.list}}" wx:for-item="device" wx:for-index="device_idx" wx:key="canvas_id"> <!--设备-->
+            <view class="canvas-wrap" style="width: {{fullWidth}}px;">
+                <view class="text-wrap">
+                    <text class="b-block">{{device.name}}</text>
+                </view>
+                <view class="btn-option text-gray1">
+                  <text>{{device.chart_name}}</text>
+                </view> 
+                <view class="data-show text-gray2">
+                  <view class="time">{{device.data.desc.x}}</view>
+                  <view class="chart-data"><text class="val text-yellow">{{device.data.desc.value}}</text>{{device.data.unit}}</view>
+                </view>
+                <view class="h-line" hidden="{{device.data.desc.hidden}}"  style="left:{{device.data.desc.left}}px;"></view>
+                <view class="desc" hidden="true" style="{{device.data.desc.style}}">
+                    <view>日期：{{device.data.desc.x}}</view>
+                    <view wx:if="{{device.data.desc.value !== ''}}">日照：{{device.data.desc.value}}{{device.data.unit}}</view>
+                    <view wx:else>无</view>
+                </view>
+                
+                <canvas canvas-id="{{device.canvas_id}}" width="{{fullWidth-30}}" height="{{canvasHeight}}" style="height: {{canvasHeight}}px;width: {{fullWidth-15}}px;" bindtouchmove="touchMove" bindtouchend="touchMove" id="{{device_idx}}"/>
+                
+            </view>
+        </view>
+
+        <view wx:if="{{(!month.list.length && month.loaded) || has_no_device}}" class="empty-show text-center">
+            <image class="doll" src="/images/default/data_img_nulldata@2x.png"></image>
+            <view class="empty-tip text-blackgray">暂无本月图表</view>
+        </view>
+    </view>
+</view>

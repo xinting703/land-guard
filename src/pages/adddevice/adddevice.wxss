@@ -1,0 +1,27 @@
+/*device.wxss*/
+.container {
+    padding: 20rpx;
+    height: 100%;
+}
+
+/*列表项*/
+.list-item {
+    height: 40px;
+    line-height: 40px;
+}
+.list-item input {
+    line-height: 40px;
+    height: 40px;
+    padding-right: 25px;
+}
+.btn-clear, .btn-scan-code {
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.btn-success {
+  margin-top: 238rpx;
+}

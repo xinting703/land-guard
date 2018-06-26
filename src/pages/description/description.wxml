@@ -1,0 +1,17 @@
+<!--pages/description/description.wxml-->
+<view class="container">
+    <view class="list-wrap">
+        <view class="list-item">            
+            到期时间
+            <text class="text-no-arrow text-gray">{{device.end_time}}</text>
+        </view>
+    </view>
+    <view class="list-wrap desc">
+        <view class="desc-title">备注</view>
+        <view class="desc-info text-gray">
+            <view>到期时间是指设备最近一次购买极飞FM1技术服务费的到期时间。如果未能在到期时间前及时续缴，可能会给您的使用带来不便。</view>
+            <view>提示：续费可以延长设备的到期时间，时间按一年顺延。</view>
+        </view>
+    </view>
+    <button bindtap="pay" class="btn-default btn-success">我要续费</button>
+</view>

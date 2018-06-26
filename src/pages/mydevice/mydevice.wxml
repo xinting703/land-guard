@@ -1,0 +1,61 @@
+<!--pages/device/device.wxml 全部设备-->
+<view class="wrapper-list-detail">
+    <view style="width: 100%;padding: 20rpx;">
+        <view bindtap="showAddMethod" class="content-add bg-white text-gray2">
+            添加设备
+            <view class="icon-wrap" style="float: right;">
+                <image class="icon-add" src="/images/common/icon_add@2x.png"></image>
+            </view>
+        </view>
+    </view>
+    <view bindtap="{{item.is_private ? '' : 'checkDetail'}}" wx:for="{{list}}" wx:key="{{index}}" class="list-item" wx:for-item="item" id="{{item.device_id}}" data-deviceid="{{item.device_id}}" data-index="{{index}}">
+      <view class="content">
+          <image class="icon-type" src="{{item.icon}}"></image>
+          <text class="block name text-blackgray">{{item.name || '未命名'}}</text>
+          <view class="dev-id text-lightgray">编号：{{item.device_id}}</view>
+          <view class="text-lightgray status">
+              <block wx:if="{{item.is_private}}">
+                  <!--他人关闭共享-->
+                  <view class="item-m icon-wrap text-lightgray">
+                      <image class="icon-energy" src="/images/common/equipment_icon_permissions@2x.png"></image>
+                      <text>{{item.limit_text}}</text>
+                  </view>
+              </block>
+              <!--开始可看设备显示-->
+              <block wx:else>
+                  <block wx:if="{{item.status == 'online' || item.status == 'upgrade'}}">
+                      <view class="item-s">
+                          <view class="icon-wrap">
+                              <image class="icon-energy" src="{{item.iconSignal}}"></image>
+                          </view>{{item.operator}}
+                      </view>
+                      <view class="item-s">
+                          <view class="icon-wrap">
+                              <view class="battery-wrapper" style="border-color: {{item.battery_color}};">
+                                <view class="battery-content" style="width: {{item.battery_level}};background-color: {{item.battery_color}};"></view>
+                                <view class="positive-point" style="background-color: {{item.battery_color}};"></view>
+                              </view>
+                          </view>{{item.battery_level}}
+                           <view wx:if="{{item.charging}}" class="icon-wrap">
+                              <image class="icon-energy" src="{{item.charging}}" style="margin-bottom: 4rpx;margin-left: -12rpx;"></image>
+                          </view> 
+                      </view>
+                  </block>
+                  <view wx:elif="{{item.status == 'offline'}}" class="item-m icon-wrap">已离线</view>
+                  <view wx:elif="{{item.status == 'unused'}}" class="item-m icon-wrap">从未上线</view>
+                  <image class="icon-arrow" src="/images/common/arrow_gray_right@2x.png"></image>
+              </block>
+              <!--结束可看设备显示-->
+              <view wx:if="{{item.mark}}" class="item-s icon-wrap">
+                <view class="icon-wrap">
+                  <image class="dev-mark" src="{{item.mark}}"></image>
+                </view>
+              </view>
+          </view>
+      </view>
+    </view>
+</view>
+<view wx:if="{{empty_show}}" class="empty-list text-blackgray">
+  <image src="/images/default/equipment_img_nulldata@2x.png" mode="widthFix"></image>
+  <view class="text-center">还没有设备，快去添加新设备吧</view>
+</view>

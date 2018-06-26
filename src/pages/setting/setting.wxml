@@ -1,0 +1,33 @@
+<!--pages/setting/setting.wxml-->
+<view class="container">
+    <view class="list-wrap">
+      <view class="list-item">
+        图像质量
+        <view class="opt wrapper-slider text-gray2">
+          <slider bindchange="qualityChange" value="{{quality}}" min="0" max="75" show-value backgroundColor="#999999" activeColor="#75ca85"/>
+        </view>
+      </view>
+      <view class="list-item">
+        图像亮度
+        <view class="opt wrapper-slider text-gray2">
+          <slider bindchange="brightChange" value="{{bright}}" min="-4" max="4" show-value backgroundColor="#999999" activeColor="#75ca85"/>
+        </view>
+      </view>
+      <view class="list-item">
+        亮度平衡
+        <view class="opt wrapper-slider text-gray2">
+          <slider bindchange="balanceChange" value="{{balance}}" min="-50" max="50" show-value backgroundColor="#999999" activeColor="#75ca85"/>
+        </view>
+      </view>
+      <view class="list-item">
+        拼接模式
+        <view class="opt text-gray2">
+          <radio-group bindchange="modeChange">
+            <label class="radio" wx:for="{{mode}}" wx:for-index="idx" wx:for-item="mode_item" wx:key="name">
+              <radio value="{{idx}}" checked="{{mode_item.checked}}" color="#75ca85"/>{{mode_item.name}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+</view>

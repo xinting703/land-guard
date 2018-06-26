@@ -1,0 +1,102 @@
+<!--pages/video/video.wxml-->
+<view class="container">
+    <view class="fixed-bar">
+        <view class="name bg-white text-blackgray text-center">{{name}}</view>
+        <!--tab-->
+        <view class="tab text-center">
+            <view bindtap="tabClick" wx:for="{{week}}" wx:key="name" wx:for-item="item" class="tab-item {{tabIndex === item.idx ? 'active' : ''}}" id="{{item.idx}}" data-date="{{item.date}}">
+                <view class="week text-gray2">{{item.name}}</view>
+                <view class="day text-gray1">{{item.showDate}}</view>
+            </view>
+        </view>
+        <view class="tab-line text-gray">
+            <view wx:for="{{week}}" wx:key="date" wx:for-item="item" class="line-item {{tabIndex == item.idx ? 'active' : ''}}">
+              <view class="line"></view>
+            </view>
+        </view>
+    </view>
+
+    <view class="type-wrapper">
+        <view class="select-type tab text-center">
+            <view bindtap="selectType" class="type-item {{typeIndex == 1 ? 'active' : ''}}" id="1">图像</view>
+            <view bindtap="selectType" class="type-item {{typeIndex == 2 ? 'active' : ''}}" id="2">图表</view>
+        </view>
+    </view>
+
+    <!--图片-->
+    <block wx:if="{{typeIndex == 1}}">
+        <view class="wrapper-photo-list" wx:for="{{photos}}" wx:for-index="idx" wx:for-item="day" wx:key="since" hidden="{{tabIndex == idx ? false : true}}" style="min-height: {{fullHeight - 175}}px;">
+            <view class="list-item bg-white" wx:for="{{day.list}}" wx:for-item="device"  wx:for-index="idx" wx:key="device_id">
+                <view class="title text-blackgray">
+                  {{device.name ? device.name : device.device_id}}
+                   <view bindtap="{{tabIndex === week.length - 1 || (tabIndex === week.length - 2 && !has_video) ? '' : 'checkVideo' }}" class="{{tabIndex === week.length - 1 || (tabIndex === week.length - 2 && !has_video) ? 'text-gray-cc' : 'text-main' }}"  data-deviceid="{{device.device_id}}" style="float: right;"> <!--当天 || （前一天但视频未合成（00：00到01：00））-->
+                    <view class="icon-wrap">
+                      <image wx:if="{{tabIndex === week.length - 1 || (tabIndex === week.length - 2 && !has_video)}}" class="icon-play" src="/images/history/data_icon_play_forbid.png" mode="widthFix"></image> 
+                      <image wx:else id="{{item.idx}}" class="icon-play" src="/images/history/data_icon_play_nor.png" mode="widthFix"></image>
+                    </view>全天时景
+                  </view> 
+                </view>
+                <scroll-view bindscrolltolower="loadMore" id="{{device.device_id}}" data-index="{{idx}}" class="scroll-view" scroll-x="true" style="height: {{device.scroll_height}}px;">
+                    <view bindtap="preview" class="wrapper-photo" wx:for="{{device.imgs}}" wx:for-item="item" wx:for-index="photo_idx" wx:key="date" style="height: {{item.height + 40}}px;" data-deviceindex="{{idx}}" data-photoindex="{{photo_idx}}">
+                        <image class="photo" src="{{item.src}}" style="width: {{photo_width}}px;height: {{item.height}}px;"></image>
+                        <view class="time text-gray2">
+                            <view class="format-time">{{item.date}}</view>
+                            <view class="interval">
+                                <view class="icon-wrap">
+                                    <image class="icon-time" src="/images/common/block_icon_time@2x.png" mode="widthFix"></image>
+                                </view>{{item.interval}}
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+
+            <view wx:if="{{(!day.list.length && day.loaded) || has_no_device}}" class="empty-show text-center">
+                <image class="doll" src="/images/default/data_img_nulldata@2x.png"></image>
+                <view class="empty-tip text-blackgray">暂无设备图像</view>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="wrapper-chart-list" wx:for="{{week_charts}}" wx:for-index="day_idx" wx:for-item="day" wx:key="{{day_idx}}" hidden="{{tabIndex == day_idx ? false : true}}" style="min-height: {{fullHeight - 175}}px;"> <!--日期-->
+            <view class="wrapper-type" wx:for="{{day.list}}" wx:for-item="device" wx:for-index="device_idx" wx:key="canvas_id"> <!--设备-->
+                <view class="canvas-wrap" style="width: {{fullWidth}}px;">
+                    <view class="text-wrap">
+                        <text class="b-block">{{device.name}}</text>
+                    </view>
+                    <view class="data-show text-gray2">
+                      <view class="time">{{device.data[device.show_type].desc.x}}</view>
+                      <view class="chart-data" wx:if="{{device.data[device.show_type].desc.value !== ''}}">
+                        <text class="val text-yellow">{{device.data[device.show_type].desc.value}}</text>{{device.data[device.show_type].unit}}
+                      </view>
+                      <view wx:else class="chart-data">--</view>
+
+                    </view>
+                    <radio-group class="radio-group chart-type text-lightgray" bindchange="radioChange" data-deviceidx="{{device_idx}}">
+                        <label wx:if="{{radio.name !== '风向'}}" class="type-item" wx:for="{{device.radios}}" wx:for-item="radio" wx:key="name">
+                            <radio class="radio" value="{{radio.idx}}" checked="{{radio.checked}}" color="#75ca85"/>{{radio.name}}
+                        </label>
+                    </radio-group>
+                    <view class="h-line" hidden="{{device.data[device.show_type].desc.hidden}}" style="left:{{device.data[device.show_type].desc.left}}px;"></view>
+                    <!-- <view class="current-circle" style="left:{{device.data[device.show_type].desc.left - 7}}px;"></view> -->
+                    <view class="desc" hidden="true" style="{{device.data[device.show_type].desc.style}}">
+                        <view>时间：{{device.data[device.show_type].desc.x}}</view>
+                        <view wx:if="{{device.data[device.show_type].desc.value !== ''}}">{{device.data[device.show_type].chart_name}}：{{device.data[device.show_type].desc.value}}{{device.data[device.show_type].unit}}</view>
+                        <view wx:else>无</view>
+                    </view>
+                    
+                    <canvas canvas-id="{{device.canvas_id}}" width="{{fullWidth-30}}" height="{{canvasHeight}}" style="height: {{canvasHeight}}px;width: {{fullWidth-15}}px;" bindtouchmove="touchMove" bindtouchend="touchMove" id="{{device_idx}}"/>
+                    
+                </view>
+            </view>
+
+            <view wx:if="{{(!day.list.length && day.loaded) || has_no_device}}" class="empty-show text-center">
+                <image class="doll" src="/images/default/data_img_nulldata@2x.png"></image>
+                <view class="empty-tip text-blackgray">暂无设备数据</view>
+            </view>
+        </view>
+    </block>
+
+    <!-- <view class="layer-mask" hidden=""></view> -->
+    <view class="no-more-info text-center text-lightgray" style="opacity: {{opacity}};" hidden="{{hide_no_more}}">没有更多显示了</view>
+</view>

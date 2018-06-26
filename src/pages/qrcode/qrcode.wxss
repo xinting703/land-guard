@@ -1,0 +1,23 @@
+/* pages/qrcode/qrcode.wxss */
+.container {
+    height: 100vh;
+    padding-top: 15px;
+}
+.img-box {
+    position: relative;
+    height: 240px;
+    margin-top: 100rpx;
+    margin-bottom: 40rpx;
+}
+.img-box canvas {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    margin-left: -120px;
+    display: inline-block;
+    width: 240px;
+    height: 240px;
+}
+.dev-id {
+  font-size: 36rpx;
+}

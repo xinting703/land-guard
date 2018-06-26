@@ -1,0 +1,510 @@
+/**app.wxss**/
+page {
+  height: 100%;
+  background-color: #f8f8f8;
+}
+.no-padding {
+  padding: 0 !important;
+}
+.container {
+  height: 100%;
+  /*display: flex;*/
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font: 14px/20px Microsoft YaHei,\5b8b\4f53,tahoma,arial,sans-serif; 
+  /*微信内字体的使用与所运行的系统字体保持一致   设置微软雅黑便于调试*/
+}
+view,input,image,text {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+input {
+  color: #666;
+}
+button {
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 36rpx;
+}
+.btn-block {
+    border-radius: 4rpx;
+}
+.btn-default {
+  color: #a7a7a7;
+  background-color: #f0f0f0;
+  border: 1px solid #dedede;
+}
+.btn-default:active {
+  background-color: #e8e8e8;
+}
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+    color: #f0f0f0;
+    background-color: transparent !important;
+}
+.btn-success {
+    color: #fff;
+    background-color: #75ca85;
+}
+.btn-success:active {
+  background-color: #6bba7a;
+}
+.btn-error {
+    color: #fff;
+    background-color: #f56670;
+}
+.btn-error:active {
+  background-color: #f55b66;
+}
+button[disabled][type="success"], button[disabled][type="error"] {
+    background-color: #a4e0af;
+}
+button:after {
+  border: none;
+}
+.wrapper-btn-block {
+    width: 100%;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    margin-top: 218rpx;
+}
+.wrapper-btn-block
+.btn-block:not(:first-child) {
+  margin-top: 20rpx;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.bg-main {
+    background-color: #09c264;
+}
+.bg-gray {
+  background-color: #f8f8f8;
+}
+.bg-white {
+  background-color: #fff;
+}
+.text-main {
+    color: #75ca85;
+}
+.text-yellow {
+    color: #fcc02f;
+}
+.text-error {
+    color: #f1415a;
+}
+.text-blackgray {
+    color: #333;
+}
+.text-gray {
+  color: #a9a9a9;
+}
+.text-gray1 {
+  color: #666;
+}
+.text-gray2 {
+  color: #999;
+}
+.text-gray-cc {
+  color: #ccc;
+}
+.text-lightgray {
+  color: #8e8e8e;
+}
+.text-white {
+    color: #fff;
+}
+.text-whitegray {
+    color: #f8f8f8;
+}
+.text-error {
+    color: #ff0000;
+}
+.text-label {
+  color: #888;
+  height: 40px;
+  line-height: 40px;
+  padding: 10px 15px;
+}
+.text-plh {
+  color: #999898;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.bd-gray {
+  border: 1px solid #d0d0d0;
+}
+.bd-lightgray {
+  border: 1px solid #eee;
+}
+
+
+/*整条添加*/
+.content-add {
+    width: 100%;
+    height: 120rpx;
+    font-size: 36rpx;
+    line-height: 120rpx;
+    padding-left: 40rpx;
+    padding-right: 20rpx;
+    box-shadow: 0 0 4px 1px rgba(77, 77, 77, 0.11);
+}
+.content-add
+.icon-add {
+    width: 48rpx;
+    height: 48rpx;
+    margin-bottom: 6rpx;
+}
+/*整条input，无边框，有下划线*/
+.wrapper-input-edit {
+    position: relative;
+    height: 90rpx;
+    border-bottom: 1px solid #eee;
+    padding-left: 70rpx;
+}
+.wrapper-input-edit
+.icon-edit {
+    position: absolute;
+    left: 20rpx;
+    top: 28rpx;
+    width: 36rpx;
+    height: 33rpx;
+}
+.wrapper-input-edit
+input {
+    height: 90rpx;
+    line-height: 90px;
+    padding-right: 60rpx; 
+}
+.wrapper-input-edit
+.btn-clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90rpx;
+    width: 60rpx;
+    padding: 28rpx 10rpx 28rpx 16rpx;
+}
+.input-length {
+    line-height: 50rpx;
+    margin-bottom: 238rpx;
+}
+/*信息列表*/
+.list-wrap {
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    font-size: 14px;
+    background-color: #fff;
+}
+.list-wrap
+.list-item {
+  position: relative;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+}
+.list-wrap
+.list-item
+.icon-wrap
+image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 12rpx;
+    margin-bottom: 6rpx;
+    margin-right: 20rpx;
+}
+.list-wrap
+.list-item
+.text-has-arrow {
+    position: absolute;
+    right: 40rpx;
+}
+.list-wrap
+.list-item
+.icon-arrow {
+  position: absolute;
+  width: 40rpx;
+  height: 36rpx;
+  top: 34rpx;
+  right: 0;
+}
+.list-wrap
+.list-item:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+.h4 {
+  height: 40px;
+  line-height: 40px;
+}
+.h6 {
+  height: 60px;
+  line-height: 60px;
+}
+.h8 {
+  height: 80px;
+  line-height: 80px;
+}
+.icon-arrow {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 13px;
+}
+.icon-wrap {
+    display: inline-block;
+}
+.icon-wrap image {
+    vertical-align: middle;
+}
+
+/*自定义toast提示*/
+.wrapper-tip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+.tip {
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transition: all 1s;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: #5e5e5e;
+  opacity: .9;
+  color: #fff;
+  border-radius: 5px;
+}
+/*缺省显示  */
+.empty-list {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30rpx;
+}
+.empty-list
+image {
+  width: 530rpx;
+}
+
+/*设备信息展示列表开始*/
+.wrapper-list-detail
+.list-item {
+    height: 200rpx;
+    transition: margin .5s;
+    background-color: #fff;
+    padding: 0 20rpx;
+}
+.wrapper-list-detail
+.list-item
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    line-height: 40rpx;
+    font-size: 26rpx;
+    overflow: hidden;
+    padding: 36rpx 40rpx 36rpx 100rpx;
+    border-bottom: 1px solid #eee;
+}
+.wrapper-list-detail
+.list-item
+.icon-type  {
+  position: absolute;
+  top: 50%;
+  left: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+  transform: translateY(-50%);
+}
+.wrapper-list-detail
+.block  {
+  display: block;
+  width: 100%;
+  height: 40rpx;
+  font-size: 36rpx;
+}
+.wrapper-list-detail
+.dev-id  {
+    height: 40rpx;
+}
+/*状态行*/
+.wrapper-list-detail
+.status  {
+    height: 48rpx;
+    padding-top: 8rpx;
+}
+.wrapper-list-detail
+.list-item
+.item-s {
+    width: 33.33%;
+    display: inline-block;
+}
+.wrapper-list-detail
+.list-item
+.item-m {
+    width: 66.67%;
+    display: inline-block;
+}
+.wrapper-list-detail
+.icon-energy  {
+    width: 44rpx;
+    height: 32rpx;
+}
+.wrapper-list-detail
+.icon-wrap
+image {
+    margin-bottom: 6rpx;
+    margin-right: 10rpx;
+}
+.wrapper-list-detail
+.dev-mark {
+  width: 44rpx;
+  height: 32rpx;
+}
+.wrapper-list-detail
+.btn-add-wrap {
+    position: relative;
+    height: 50px;
+}
+.wrapper-list-detail
+.icon-arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 40rpx;
+    height: 36rpx;
+}
+/*设备信息展示列表结束*/
+
+/*列表页脚开始*/
+.list-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    font-size: 11pt;
+    border-top: 1px solid #eee;
+}
+.list-footer
+.btn-text {
+    display: inline-block;
+    height: 50px;
+    line-height: 20px;
+    font-size: 11pt;
+    background-color: transparent;
+    padding: 15px;
+    margin-top: 0;
+}
+.list-footer
+.btn-add {
+    float: right;
+}
+/*列表页脚结束*/
+
+
+
+
+
+
+
+
+/* 滑动删除list*/
+.slide-list-box {
+  padding-top: 15px;
+  font-size: 11pt;
+  min-height: 100%;
+}
+.slide-item{
+    position: relative;
+    border-top: 1px solid #eee;
+    height: 70px;
+    line-height: 70px;
+    overflow: hidden;
+}
+.slide-item:last-child{
+    border-bottom: 1px solid #eee;
+}
+.slide-item .inner{
+    position: absolute;
+    top:0;
+}
+.slide-item .inner.txt{
+  background-color: #fff;
+  width: 100%;
+  z-index: 5;
+  padding:0 15px;
+  transition: left 0.2s ease-in-out;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  color: #666;
+}
+.slide-item .inner.edit{
+  background-color: #C8C7CD;
+  width: 80px;
+  text-align: center;
+  z-index: 4;
+  right: 80px;
+  color: #fff;
+}
+.slide-item .inner.del{
+  background-color: red;
+  width: 80px;
+  text-align: center;
+  z-index: 4;
+  right: 0;
+  color: #fff;
+}
+.slide-list-box .btn-add-wrap  {
+  position: relative;
+  height: 50px;
+}
+.slide-list-box .btn-add  {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 15px;
+}
+/* 滑动删除list结束*/
+
+/*电量图标  */
+.battery-wrapper {
+  position: relative;
+  width: 36rpx;
+  height: 20rpx;
+  border: 2rpx solid;
+  border-radius: 4rpx;
+  padding: 3rpx;
+  margin-right: 10px;
+}
+.battery-content {
+  height: 100%;
+}
+.positive-point {
+  position: absolute;
+  right: -3rpx;
+  top: 4rpx;
+  width: 3rpx;
+  height: 8rpx;
+}

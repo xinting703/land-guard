@@ -1,0 +1,31 @@
+<!--pages/location/location.wxml-->
+<view class="container">
+  <block wx:if="{{markers}}">
+    <map id="myMap" longitude="{{centerLongitude}}" latitude="{{centerLatitude}}" scale="{{scale}}" markers="{{markers}}" show-location style="height: {{mapHeight}}px;"></map>
+    <view class="list-wrap">
+      <view class="list-item h6">
+        <image class="icon-type" src="{{singlePoint.typeIcon}}"></image>
+          <view class="type-des">
+              <text class="dev-name text-blackgray">{{singlePoint.name || '未命名'}}</text>
+              <view class="scene-name text-gray1" style="font-size: 26rpx;">
+                <!--<block wx:for="{{singlePoint.tags}}" wx:key="{{item}}">{{item}} </block>-->
+                {{singlePoint.devId}}
+              </view>
+          </view>
+          <image wx:if="{{singlePoint.locIcon}}" class="icon-loc" src="{{singlePoint.locIcon}}"></image>
+      </view>
+      <view class="list-item addr-wrap h4">
+        <view class="icon-wrap"><image class="icon-addr" src="/images/location/equlocation_icon1@2x.png"></image></view>
+        <view class="address text-blackgray">{{address}}</view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{noPosition}}">
+    <view class="empty-tip text-gray text-center">
+      <image class="doll" src="/images/default/equlocation_img_nulldata.png"></image>
+      <view class="text-blackgray">暂无位置信息</view>
+    </view>
+  </block>
+  
+</view>

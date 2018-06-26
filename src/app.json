@@ -1,0 +1,52 @@
+{
+  "pages":[
+    "pages/myscene/myscene",
+    "pages/mydevice/mydevice",
+    "pages/notice/notice",
+    "pages/scenedata/scenedata",
+    "pages/history/history",
+    "pages/video/video",
+    "pages/trend/trend",
+    "pages/sceneinfo/sceneinfo",
+    "pages/selectdevice/selectdevice",
+    "pages/addscene/addscene",
+    "pages/setscenename/setscenename",
+    "pages/scenedevice/scenedevice",
+    "pages/deviceinfo/deviceinfo",
+    "pages/qrcode/qrcode",
+    "pages/setdevice/setdevice",
+    "pages/setting/setting",
+    "pages/cleardata/cleardata",
+    "pages/adddevice/adddevice",
+    "pages/location/location",
+    "pages/description/description",
+    "pages/fee/fee"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "极飞物联",
+    "backgroundColor": "#f8f8f8",
+    "backgroundTextStyle": "dark"
+  },
+    "tabBar": {
+        "selectedColor": "#75ca85",
+        "color": "#999999",
+        "backgroundColor": "#fff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/myscene/myscene",
+                "iconPath": "images/tabbar/tab_icon_block_nor@2x.png",
+                "selectedIconPath": "images/tabbar/tab_icon_block_sel@2x.png",
+                "text": "我的地块"
+            },
+            {
+                "pagePath": "pages/mydevice/mydevice",
+                "iconPath": "images/tabbar/tab_icon_equipment_nor@2x.png",
+                "selectedIconPath": "images/tabbar/tab_icon_equipment_sel@2x.png",
+                "text": "我的设备"
+            }
+        ]
+    }
+}

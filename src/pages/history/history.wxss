@@ -1,0 +1,365 @@
+/* pages/video/video.wxss */
+.container {
+    position: relative;
+    height: auto;
+    min-height: 100%;
+    padding-top: 230rpx;
+}
+.fixed-bar {
+    position: absolute;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 20rpx;
+}
+.name {
+    padding: 0 20rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+}
+.fixed-bar .tab {
+  width: 100%;
+  height: 110rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+.fixed-bar .tab-item {
+  width: 16.66%;
+  height: 100%;
+  display: inline-block;
+  font-size: 26rpx;
+  line-height: 36rpx;
+  padding-top: 10rpx;
+}
+/* .fixed-bar .tab-item.active {
+  border-bottom: 1px solid #75ca85;
+} */
+.fixed-bar
+.tab-line {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+.fixed-bar
+.tab-line
+.line-item {
+  width: 16.66%;
+  height: 2px;
+  float: left;
+}
+.fixed-bar
+.tab-line
+.line-item
+.line {
+   position: relative;
+  left: 50%;
+  margin-left: -20rpx; 
+  width: 40rpx;
+  height: 2px;
+}
+.fixed-bar
+.tab-line
+.line-item.active
+.line {
+  border-bottom: 2px solid #75ca85;
+}
+
+
+.type-wrapper {
+  width: 100%;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+.select-type.tab {
+  width: 100%;
+  border: 1px solid #75ca85;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.select-type
+.type-item {
+  width: 50%;
+  height: 70rpx;
+  display: inline-block;
+  line-height: 70rpx;
+  color: #75ca85;
+  font-size: 26rpx;
+}
+.select-type
+.type-item:not(:last-child) {
+  border-right: 1px solid #75ca85;
+}
+.select-type
+.type-item.active {
+  background-color: #75ca85;
+  color: #fff;
+}
+
+/*图片区域*/
+.wrapper-photo-list, .wrapper-chart-list {
+    position: relative;
+    z-index: 3;
+    padding-bottom: 20rpx;
+}
+.wrapper-photo-list
+.list-item {
+    line-height: 0;
+    padding-right: 0;
+    border: none;
+}
+.wrapper-photo-list
+.list-item:not(:last-child) {
+    margin-bottom: 20rpx;
+}
+.title {
+    height: 90rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    line-height: 90rpx;
+    font-size: 30rpx;
+}
+
+.scroll-view {
+  white-space: nowrap;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.wrapper-photo {
+  display: inline-block;
+  margin-right: 20rpx;
+}
+.wrapper-photo>image {
+  border-radius: 4px;
+}
+.wrapper-photo:first-child {
+    margin-left: 20rpx;
+}
+.time {
+    position: relative;
+    top: 0;
+    height: 30px;
+    font-size: 24rpx;
+    line-height: 30px;
+}
+.format-time {
+    float: left;
+}
+.interval {
+    float: right;
+    color: #cbcbcb;
+}
+.icon-play {
+  width: 44rpx;
+  height: 44rpx;
+  margin-bottom: 6rpx;
+  margin-right: 10rpx;
+}
+.icon-time {
+    width: 12px;
+    height: 12px;
+    margin-right: 4rpx;
+    margin-bottom: 4rpx;
+}
+
+/*空显示*/
+.empty-show {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin-top: -30px;
+}
+.empty-show .doll{
+  width: 600rpx;
+  height: 430rpx;
+}
+.empty-show .empty-tip {
+  line-height: 30px;
+  font-size: 30rpx;
+}
+.no-more-info {
+    line-height: 30px;
+    padding: 5px 20rpx;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    transition: all 1s;
+}
+
+/*图表*/
+.radio {
+  transform: scale(.5);
+  margin-right: -5px;
+}
+.chart-type {
+    height: 30px;
+    line-height: 30px;
+    font-size: 9pt;
+    margin-top: 5px;
+}
+.chart-type
+.type-item {
+    width: 60px;
+    margin-left: -5px;
+    margin-right: 10px;
+}
+.chart-name {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+.wrapper-type:not(:last-child) {
+  margin-bottom: 20rpx;
+}
+.canvas-wrap {
+    position: relative;
+    z-index: 20;
+    background-color: #fff;
+    padding-left: 10px;
+    padding-bottom: 20rpx;
+}
+.container .canvas-wrap:not(:last-child) {
+    margin-bottom: 20rpx;
+}
+.text-wrap {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 30rpx;
+    padding-right: 20rpx;
+}
+canvas {
+    display: block !important;
+}
+.btn-option {
+  position: absolute;
+  right: 30rpx;
+  top: 0;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 26rpx;
+}
+.btn-option
+.img-sel {
+  position: relative;
+  top: 15rpx;
+  width: 48rpx;
+  height: 48rpx;
+}
+.option-list {
+  position: absolute;
+  top: 90rpx;
+  right: 20rpx;
+  z-index: 30;
+  width: 170rpx;
+  font-size: 24rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background-color: #fff;
+  border: 1px solid #75ca85;
+}
+.option-list
+.opt-item {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+.option-list
+.opt-item.active {
+  color: #666;
+}
+.option-list
+.opt-item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+.data-show {
+  height: 90rpx;
+}
+.data-show
+.time {
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 24rpx;
+}
+.data-show
+.chart-data {
+  height: 60rpx;
+}
+.data-show
+.chart-data
+.val {
+  line-height: 60rpx;
+  font-size: 60rpx;
+  margin-right: 20rpx;
+}
+.desc {
+  position: absolute;
+  top: 63px;
+  min-width: 100px;
+  height: 46px;
+  text-align: left;
+  line-height: 18px;
+  color: #fff;
+  padding: 5px 10px;
+  background-color: #000;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: .4;
+}
+.desc .tria {
+  border-width: 6px;
+  border-style: solid;
+  border-color: #0e4059 transparent transparent transparent;
+  position: absolute;
+  bottom: -12px;
+}
+.h-line {
+  width: 1px;
+  height: 130px;
+  background-color: #eee;
+  position: absolute;
+  bottom: 31px;
+}
+.v-line {
+  height: 1px;
+  background-color: #eee;
+  position: absolute;
+  left: 30px;
+  width: 100%;
+}
+.current-circle {
+  position: absolute;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  opacity: .4;
+  background-color: #75ca85;
+}
+
+/*蒙层  */
+.layer-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .2;
+}

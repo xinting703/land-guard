@@ -1,0 +1,67 @@
+/*selectdevice.wxss*/
+.wrapper-list-detail {
+    position: relative;
+    min-height: 100%;
+    padding-top: 20rpx;
+    padding-bottom: 120rpx;
+    overflow-y: auto;
+}
+.wrapper-list-detail
+.list-item {
+    height: 140rpx;
+}
+.wrapper-list-detail .list-item .content {
+  padding-left: 140rpx;
+}
+.wrapper-list-detail .list-item .icon-type {
+  left: 60rpx;
+}
+.check-box {
+  position: absolute;
+  top: 31%;
+  left: 0;
+  transform: scale(.6);
+}
+.wrapper-list-detail .icon-arrow {
+  right: 20rpx;
+  width: 44rpx;
+  height: 32rpx;
+}
+.check-all {
+  position: relative;
+  top: 0;
+  transform: scale(.6);
+}
+
+/*列表项*/
+.select-res {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 30rpx;
+    border-top: 1px solid #eee;
+}
+.btn {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+}
+.btn-select-all {
+    left: 0;
+    font-size: 26rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+.btn-join-tag {
+    right: 0;
+    width: 200rpx;
+    height: 100%;
+    display: inline-block;
+    font-size: 36rpx;
+    line-height: 100rpx;
+    border-radius: 0;
+}

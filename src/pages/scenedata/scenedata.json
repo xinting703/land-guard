@@ -1,0 +1,6 @@
+{
+    "navigationBarBackgroundColor": "#75ca86",
+    "enablePullDownRefresh": true,
+    "navigationBarTitleText": "地块数据",
+    "navigationBarTextStyle": "white"
+}

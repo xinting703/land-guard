@@ -1,0 +1,27 @@
+<!--pages/selectdevice/selectdevice.wxml-->
+<view class="wrapper-list-detail">
+    <checkbox-group catchchange="checkboxChange">
+        <label class="" wx:for="{{list}}" wx:key="device_id">
+            <view wx:key="{{index}}" class="list-item" wx:for-item="item">
+              <view class="content">
+                <checkbox class="check-box" value="{{item.device_id}}" checked="{{item.checked}}" disabled="{{item.disabled}}" color="#f2d758"/>
+                <image data-index="{{index}}" class="icon-type" src="{{item.icon}}"></image>
+                <text data-index="{{index}}" class="block name text-black-gray">{{item.name || '未命名'}}</text>
+                <view class="dev-id text-lightgray">{{item.device_id}}</view>
+                <image wx:if="{{item.mark}}" data-index="{{index}}" src="{{item.mark}}" class="icon-arrow"></image>
+              </view>
+            </view>
+        </label>
+    </checkbox-group>
+</view>
+<view class="list-footer select-res bg-white text-center text-blackray">
+  <label bindtap="selectAll" class="btn btn-select-all text-main" data-select_all="{{select_all}}">
+    <checkbox value="{{select_info}}" checked="{{select_all}}" class="check-all"/>{{select_info}}
+  </label>
+  已选择<text class="text-error">{{selected_devices.length}}</text>台设备
+  <button type="success" bindtap="joinTag" class="btn btn-success btn-join-tag" disabled="{{dis_btn_add}}">添加</button>
+</view>
+
+<view class="wrapper-tip" hidden="{{!show_tip}}">
+  <view class="tip">单次至多添加5台设备</view>
+</view>

@@ -1,0 +1,5 @@
+/* pages/changeSceneName/changeSceneName.wxss */
+.container {
+    padding: 30rpx;
+    height: 100%;
+}

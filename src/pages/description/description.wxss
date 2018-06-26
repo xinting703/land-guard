@@ -1,0 +1,34 @@
+/* pages/description/description.wxss */
+.container {
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+.money {
+    height: 60px;
+    font-size: 24pt;
+    line-height: 60px;
+}
+/*列表项*/
+.list-wrap {
+    margin-bottom: 15px;
+}
+.list-wrap.desc {
+    position: relative;
+    padding: 15px 15px 15px 60px;
+}
+.list-wrap
+.desc-title {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+.list-item {
+    height: 40px;
+    line-height: 40px;
+    display: block;
+}
+.text-no-arrow {
+    position: absolute;
+    right: 15px;
+}
